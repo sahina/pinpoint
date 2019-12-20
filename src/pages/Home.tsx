@@ -1,25 +1,48 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import {
+  IonContent,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonSplitPane,
+  IonMenu,
+  IonMenuToggle,
+  IonButtons,
+  IonButton,
+  IonIcon
+} from '@ionic/react';
 import React from 'react';
 
 const Home: React.FC = () => {
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Ionic Blank</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent className="ion-padding">
-        The world is your oyster.
-        <p>
-          If you get lost, the{' '}
-          <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/">
-            docs
-          </a>{' '}
-          will be your guide.
-        </p>
+    <IonSplitPane contentId="map-content">
+      <IonMenu contentId="map-content">
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle>
+              Saved Addresses
+            </IonTitle>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent>
+          Address list
+        </IonContent>
+      </IonMenu>
+      <IonContent id="map-content">
+        <IonHeader>
+          <IonToolbar>
+            <IonButtons slot="start">
+              <IonMenuToggle>
+                <IonButton>
+                  <IonIcon slot="icon-only" name="menu"></IonIcon>
+                </IonButton>
+              </IonMenuToggle>
+            </IonButtons>
+            <IonTitle>Select Location</IonTitle>
+          </IonToolbar>
+        </IonHeader>
+        <p>Map will be here</p>
       </IonContent>
-    </IonPage>
+    </IonSplitPane>
   );
 };
 
